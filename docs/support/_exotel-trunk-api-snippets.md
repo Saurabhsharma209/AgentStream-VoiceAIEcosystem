@@ -1,6 +1,6 @@
 # Exotel vSIP trunk API — shared reference
 
-Use these snippets from the support articles for **ElevenLabs**, **LiveKit**, **Retell**, **Bolna**, **Pipecat (via Daily SIP)**, **Ultravox**, **Vapi**, **Smallest AI (Atoms)**, and **Vocallabs** integrations. Replace placeholders; do not commit real secrets.
+Use these snippets from the support articles for **ElevenLabs**, **LiveKit**, **Retell**, **Bolna**, **Pipecat (via Daily SIP)**, **Ultravox**, **Vapi**, **Smallest AI (Atoms)**, **Vocallabs**, and **Rapida AI** integrations. Replace placeholders; do not commit real secrets.
 
 | Placeholder | Description |
 |-------------|-------------|
@@ -142,4 +142,5 @@ curl -s "https://${API_KEY}:${API_TOKEN}@${SUBDOMAIN}/v2/accounts/${ACCOUNT_SID}
 - [Exotel + Vapi support article](./exotel-vapi-sip-trunk.md)
 - [Exotel + Smallest AI support article](./exotel-smallest-ai-sip-trunk.md)
 - [Exotel + Vocallabs support article](./exotel-vocallabs-sip-trunk.md)
+- [Exotel + Rapida AI support article](./exotel-rapida-ai-sip-trunk.md)
 - [Exotel network and firewall](https://docs.exotel.com/dynamic-sip-trunking/network-and-firewall-configuration)

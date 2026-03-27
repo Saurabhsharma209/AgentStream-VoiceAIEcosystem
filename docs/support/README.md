@@ -32,6 +32,7 @@ Treat the steps below as **minimum click/API paths** once those are true.
 | **Vapi** | [Dashboard](https://dashboard.vapi.ai/) | [SIP trunking](https://docs.vapi.ai/advanced/sip/sip-trunk) · [SIP networking](https://docs.vapi.ai/advanced/sip/sip-networking) | [`exotel-vapi-sip-trunk.md`](./exotel-vapi-sip-trunk.md) |
 | **Smallest AI (Atoms)** | [app.smallest.ai](https://app.smallest.ai/) | [Phone Numbers — Import SIP](https://atoms-docs.smallest.ai/platform/deployment/phone-numbers.md) · [Telephony](https://atoms-docs.smallest.ai/intro/capabilities/telephony.md) | [`exotel-smallest-ai-sip-trunk.md`](./exotel-smallest-ai-sip-trunk.md) |
 | **Vocallabs** | [API docs](https://docs.vocallabs.ai/vocallabs) | [Superflow B2B](https://api.superflow.run/b2b/) — `createSIPCall`, `initiateVocallabsCall` ([reference](https://docs.vocallabs.ai/vocallabs)) | [`exotel-vocallabs-sip-trunk.md`](./exotel-vocallabs-sip-trunk.md) |
+| **Rapida AI** | [rapida.ai](https://www.rapida.ai/) | [Exotel integration](https://doc.rapida.ai/integrations/telephony/exotel) · [SIP trunk](https://doc.rapida.ai/integrations/telephony/sip) · [Phone deployment](https://doc.rapida.ai/voice-deployment-options/phone) | [`exotel-rapida-ai-sip-trunk.md`](./exotel-rapida-ai-sip-trunk.md) |
 
 **Exotel (all paths):** [API credentials (India)](https://my.in.exotel.com/apisettings/site#api-credentials) · [SIP API reference](https://docs.exotel.com/dynamic-sip-trunking/detailed-sip-trunking-api-reference) · [Network / firewall](https://docs.exotel.com/dynamic-sip-trunking/network-and-firewall-configuration) · [Voice AI Flow / Connect](https://support.exotel.com/support/solutions/articles/3000133452-flow-and-api-configuration-guide-for-voice-ai-contact-centre-platforms-via-exotel-virtual-sip-trunk)
 
@@ -97,6 +98,11 @@ Treat the steps below as **minimum click/API paths** once those are true.
 2. **Exotel:** trunk + DID + **`/credentials`** when your design uses SIP digest toward Exotel; optional **`whitelisted-ips`** only if Vocallabs publishes **static** egress IPs.  
 3. **Inbound:** add **`destination-uris`** + Flow **Connect** **`sip:<trunk_sid>`** only if Vocallabs provides a **SIP origination URI** — confirm with their team; public reference is **REST-heavy**, not full BYO dashboard SIP like Vapi.
 
+### Rapida AI (native Exotel vs SIP trunk)
+
+1. **Path A (native):** Rapida **Integration → Tools** → **Exotel** credentials; **Phone** deployment with **App ID** + DID; Exotel Flow → **`https://websocket-01.in.rapida.ai/v1/talk/exotel/call/...`** ([guide](https://doc.rapida.ai/integrations/telephony/exotel)).  
+2. **Path B (SIP):** Exotel vSIP **`destination-uris`** toward **`sip-01.in.rapida.ai:5060`**; **Connect** **`sip:<trunk_sid>`**; Rapida **SIP Trunk** credential toward Exotel **edge** for PSTN outbound if needed ([SIP guide](https://doc.rapida.ai/integrations/telephony/sip)).
+
 ---
 
 ## What was easy to miss (gaps we closed in docs)
@@ -110,6 +116,7 @@ Treat the steps below as **minimum click/API paths** once those are true.
 | **Scripts** for ElevenLabs + Exotel API | [`scripts/exotel-elevenlabs/README.md`](../../scripts/exotel-elevenlabs/README.md) |
 | **Vapi** needs **two** Exotel ACL lines for its SBC IPs | [`exotel-vapi-sip-trunk.md`](./exotel-vapi-sip-trunk.md) |
 | **Vocallabs** is **API-first** (`createSIPCall`, websockets) — not the same as BYO SIP trunk UI | [`exotel-vocallabs-sip-trunk.md`](./exotel-vocallabs-sip-trunk.md) |
+| **Rapida** has **native Exotel** (webhook/stream) **and** optional **SIP trunk** | [`exotel-rapida-ai-sip-trunk.md`](./exotel-rapida-ai-sip-trunk.md) |
 
 ---
 
